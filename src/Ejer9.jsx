@@ -6,11 +6,19 @@ function Ejer9() {
     <section>
       <h2>Ejercicio 9</h2>
 
-      {mostrarNotificaciones && notificaciones.length > 0 ? (
-        notificaciones.map((n, i) => <p key={i}>{n}</p>)
-      ) : (
-        <p>No hay notificaciones</p>
+      {mostrarNotificaciones && (
+        notificaciones.length > 0 ? (
+          <div>
+            {notificaciones.map((n, i) => (
+              <p key={i}>{n}</p>
+            ))}
+          </div>
+        ) : (
+          <p>No hay notificaciones</p>
+        )
       )}
+
+      {!mostrarNotificaciones && <p>No hay notificaciones</p>}
     </section>
   );
 }

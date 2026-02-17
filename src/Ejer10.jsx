@@ -1,12 +1,4 @@
-function TarjetaUsuario({ nombre, edad, activo }) {
-  return (
-    <div>
-      <p>Nombre: {nombre || "Sin nombre"}</p>
-      <p>Edad: {edad}</p>
-      <p>Estado: {activo ? "Activo" : "Inactivo"}</p>
-    </div>
-  );
-}
+import TarjetaUsuario from "./TarjetaUsuario";
 
 function Ejer10() {
   const usuarios = [
@@ -24,10 +16,13 @@ function Ejer10() {
       <h2>Ejercicio 10</h2>
 
       {usuarios.map((u) => (
-        <div key={u.id}>
-          <TarjetaUsuario {...u} />
-          {puedeVerDetalle(u) && <button>Ver detalle</button>}
-        </div>
+        <TarjetaUsuario
+          key={u.id}
+          nombre={u.nombre}
+          edad={u.edad}
+          activo={u.activo}
+          puedeVer={puedeVerDetalle(u)}
+        />
       ))}
     </section>
   );
